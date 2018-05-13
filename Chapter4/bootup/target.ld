@@ -33,3 +33,5 @@ SECTIONS
         _end = .;
     } > RAM
 }
+
+END_STACK = ORIGIN(RAM) + LENGTH(RAM);

@@ -31,14 +31,13 @@ extern unsigned int _end_data;
 extern unsigned int _start_bss;
 extern unsigned int _end_bss;
 
-static unsigned char stack[800];
-#define END_STACK (stack + sizeof(stack))
+extern void *END_STACK;
 
 static int zeroed_variable_in_bss;
 static int initialized_variable_in_data = 42;
 void main(void);
 void isr_reset(void) {
-    register unsigned int *src, *dst;
+    unsigned int *src, *dst;
 
     /* Copy the .data section from flash to RAM. */
     src = (unsigned int *) &_stored_data;
@@ -101,7 +100,7 @@ void main(void) {
 __attribute__ ((section(".isr_vector")))
 void (* const IV[])(void) =
 {
-    (void (*)(void))(END_STACK),
+    (void (*)(void))(&END_STACK),
     isr_reset,                   // Reset
     isr_fault,                   // NMI
     isr_fault,                   // HardFault
