@@ -79,7 +79,7 @@ void free(void *ptr)
 
 void * _sbrk(unsigned int incr)
 {
-    static unsigned char *heap = NULL;
+    static unsigned char *heap = (unsigned char *)&_start_heap;
     void *old_heap = heap;
     if (((incr >> 2) << 2) != incr)
         incr = ((incr >> 2) + 1) << 2;
@@ -90,6 +90,7 @@ void * _sbrk(unsigned int incr)
         heap += incr;
     return old_heap;
 }
+
 void * _sbrk_r(unsigned int incr)
 {
     static unsigned char *heap = NULL;

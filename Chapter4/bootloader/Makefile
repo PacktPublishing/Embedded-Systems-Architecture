@@ -3,7 +3,7 @@ CC:=$(CROSS_COMPILE)gcc
 LD:=$(CROSS_COMPILE)ld
 OBJCOPY:=$(CROSS_COMPILE)objcopy
 
-CFLAGS:=-mcpu=cortex-m3 -mthumb -g -ggdb -Wall -Wno-main
+CFLAGS:=-mcpu=cortex-m3 -mthumb -g -ggdb -Wall -Wno-main -fstack-check
 LDFLAGS:=-gc-sections -nostdlib
 
 all: image.bin

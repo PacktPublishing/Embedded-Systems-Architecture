@@ -62,7 +62,6 @@ void isr_reset(void) {
 
     /* Paint the stack. */
     avail_mem = &_end_stack - &_start_heap;
-#ifdef STACK_PAINTING
     {
         asm volatile("mrs %0, msp" : "=r"(sp));
         dst = ((unsigned int *)(&_end_stack)) - (8192 / sizeof(unsigned int)); ;
@@ -71,7 +70,6 @@ void isr_reset(void) {
             dst++;
         }
     }
-#endif
     /* Run the program! */
     main();
 }

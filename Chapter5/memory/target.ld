@@ -40,5 +40,5 @@ SECTIONS
 
 }
 
-PROVIDE(_start_heap = _end);
-PROVIDE(_end_stack  = ORIGIN(RAM) + LENGTH(RAM));
+_start_heap = _end;
+_end_stack  = ORIGIN(RAM) + LENGTH(RAM);

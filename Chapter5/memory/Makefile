@@ -5,7 +5,7 @@ LD:=$(CROSS_COMPILE)gcc
 LSCRIPT:=target.ld
 
 OBJCOPY:=$(CROSS_COMPILE)objcopy
-CFLAGS:=-mcpu=cortex-m3 -mthumb -g -ggdb -Wall -Wno-main -Wstack-usage=200 -ffreestanding -Wno-unused -nostdlib -DOWN_MALLOC
+CFLAGS:=-mcpu=cortex-m3 -mthumb -g -ggdb -Wall -Wno-main -Wstack-usage=200 -ffreestanding -Wno-unused -nostdlib #-DOWN_MALLOC
 LDFLAGS:=-T $(LSCRIPT) -Wl,-gc-sections -Wl,-Map=image.map -mcpu=cortex-m3 -mthumb -nostartfiles
 
 all: image.bin
