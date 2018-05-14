@@ -12,7 +12,7 @@ SECTIONS
         KEEP(*(.isr_vector))
         . = 0x400;
         KEEP(*(.utils))
-        *(.text*)
+        KEEP(*(.text*))
         *(.rodata*)
         . = ALIGN(4);
         _end_text = .;
@@ -23,12 +23,12 @@ SECTIONS
     .data : AT (_stored_data)
     {
         _start_data = .;
-        *(.data*)
+        KEEP(*(.data*))
         . = ALIGN(4);
         _end_data = .;
     } > RAM
 
-    .bss :
+    .bss (NOLOAD) : 
     {
         _start_bss = .;
         *(.bss*)
@@ -37,4 +37,7 @@ SECTIONS
         _end_bss = .;
         _end = .;
     } > RAM
+    . = ALIGN(4);
 }
+
+END_STACK = ORIGIN(RAM) + LENGTH(RAM);

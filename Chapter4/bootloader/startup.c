@@ -34,8 +34,8 @@ extern unsigned int _end_data;
 extern unsigned int _start_bss;
 extern unsigned int _end_bss;
 
-static unsigned char stack[800];
-#define END_STACK (stack + sizeof(stack))
+
+extern uint32_t *END_STACK;
 
 static int zeroed_variable_in_bss;
 static int initialized_variable_in_data = 42;
@@ -78,7 +78,7 @@ void isr_svc(void)
     /* Ignore the event and continue */
 }
 
-void main(void) {
+void __attribute__((used, noreturn)) main(void) {
 
     /* Increment test variables at each loop */
     while(1) {
@@ -97,7 +97,7 @@ void main(void) {
 __attribute__ ((section(".isr_vector")))
 void (* const IV[])(void) =
 {
-	(void (*)(void))(END_STACK),
+	(void (*)(void))(&END_STACK),
 	isr_reset,                   // Reset
 	isr_fault,                   // NMI
 	isr_fault,                   // HardFault

@@ -21,7 +21,7 @@ SECTIONS
     .data : AT (_stored_data)
     {
         _start_data = .;
-        *(.data*)
+        KEEP(*(.data*))
         . = ALIGN(4);
         _end_data = .;
     } > RAM
@@ -36,3 +36,5 @@ SECTIONS
         _end = .;
     } > RAM
 }
+
+END_STACK = ORIGIN(RAM) + LENGTH(RAM);

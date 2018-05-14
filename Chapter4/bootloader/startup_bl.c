@@ -34,8 +34,7 @@ extern unsigned int _end_data;
 extern unsigned int _start_bss;
 extern unsigned int _end_bss;
 
-static unsigned char stack[800];
-#define END_STACK (stack + sizeof(stack))
+extern uint32_t *END_STACK;
 #define APP_OFFSET (0x00001000)
 
 void main(void);
@@ -114,7 +113,7 @@ void main(void)
 __attribute__ ((section(".isr_vector")))
 void (* const IV[])(void) =
 {
-	(void (*)(void))(END_STACK),
+	(void (*)(void))(&END_STACK),
 	isr_reset,                   // Reset
 	isr_fault,                   // NMI
 	isr_fault,                   // HardFault

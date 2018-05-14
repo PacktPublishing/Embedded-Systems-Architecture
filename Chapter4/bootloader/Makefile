@@ -12,10 +12,10 @@ image.bin: app.bin bootloader.bin
 	cat bootloader.bin app.bin > image.bin
 
 app.bin: app.elf
-	$(OBJCOPY) -O binary $^ $@
+	$(OBJCOPY) -O binary $< $@
 
 bootloader.bin: bootloader.elf
-	$(OBJCOPY) -O binary --pad-to 4096 $^ $@
+	$(OBJCOPY) -O binary --pad-to=0x001000 $< $@
 
 app.elf: startup.o app.ld
 	$(LD) $(LDFLAGS) startup.o -o $@ -Map=app.map -T app.ld
