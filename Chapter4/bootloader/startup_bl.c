@@ -39,7 +39,7 @@ extern uint32_t *END_STACK;
 
 void main(void);
 void isr_reset(void) {
-    register unsigned int *src, *dst;
+    unsigned int *src, *dst;
 
     /* Copy the .data section from flash to RAM. */
     src = (unsigned int *) &_stored_data;
@@ -71,8 +71,6 @@ void isr_empty(void)
     /* Ignore the event and continue */
 }
 
-static const uint32_t * const app_IV = (const uint32_t *)APP_OFFSET;
-static void (* app_entry)(void);
 
 #define VTOR (*(volatile uint32_t *)(0xE000ED08))
 
@@ -88,6 +86,8 @@ static void (* app_entry)(void);
  */
 void main(void) 
 {
+    const uint32_t * const app_IV = (const uint32_t *)APP_OFFSET;
+    void  *app_entry;
     uint32_t app_end_stack;
     /* Disable interrupts */
     asm volatile("cpsid i");
@@ -105,8 +105,8 @@ void main(void)
     /* Update stack pointer */
     asm volatile("msr msp, %0" ::"r"(app_end_stack));
 
-    /* Call entry point */
-    app_entry();
+    /* Unconditionally jump to app_entry */
+    asm volatile("mov pc, %0" ::"r"(app_entry));
 }
 
 

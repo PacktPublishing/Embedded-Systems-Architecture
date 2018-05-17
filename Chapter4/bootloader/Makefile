@@ -15,7 +15,7 @@ app.bin: app.elf
 	$(OBJCOPY) -O binary $< $@
 
 bootloader.bin: bootloader.elf
-	$(OBJCOPY) -O binary --pad-to=0x001000 $< $@
+	$(OBJCOPY) -O binary --pad-to=0x001000 --gap-fill=0xFF $< $@
 
 app.elf: startup.o app.ld
 	$(LD) $(LDFLAGS) startup.o -o $@ -Map=app.map -T app.ld

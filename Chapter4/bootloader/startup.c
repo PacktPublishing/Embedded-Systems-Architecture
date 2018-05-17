@@ -41,7 +41,7 @@ static int zeroed_variable_in_bss;
 static int initialized_variable_in_data = 42;
 void main(void);
 void isr_reset(void) {
-    register unsigned int *src, *dst;
+    unsigned int *src, *dst;
 
     /* Copy the .data section from flash to RAM. */
     src = (unsigned int *) &_stored_data;
@@ -86,7 +86,7 @@ void __attribute__((used, noreturn)) main(void) {
         initialized_variable_in_data++;
         if ((zeroed_variable_in_bss % 1000) == 0) {
             /* Trigger SVC */
-            asm volatile("svc 0");
+            //asm volatile("svc 0");
             utils_open();
             utils_close();
 
