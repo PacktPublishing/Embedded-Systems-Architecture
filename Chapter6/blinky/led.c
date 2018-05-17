@@ -41,12 +41,13 @@
 
 void led_setup(void)
 {
+    uint32_t reg;
     AHB1_CLOCK_ER |= GPIOD_AHB1_CLOCK_ER;
-    GPIOD_MODE &= ~ (0x03 << (LED_PIN * 2));
-    GPIOD_MODE |= (1 << (LED_PIN * 2));
+    reg = GPIOD_MODE & ~ (0x03 << (LED_PIN * 2));
+    GPIOD_MODE = reg | (1 << (LED_PIN * 2));
 
-    GPIOD_PUPD &= (0x03 <<  (LED_PIN * 2));
-    GPIOD_PUPD |= (0x02 << (LED_PIN * 2));
+    reg = GPIOD_PUPD & (0x03 <<  (LED_PIN * 2));
+    GPIOD_PUPD = reg | (0x02 << (LED_PIN * 2));
 }
 
 void led_on(void)
