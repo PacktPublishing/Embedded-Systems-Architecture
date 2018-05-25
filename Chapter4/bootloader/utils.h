@@ -35,7 +35,7 @@ int utils_write(const void *buf, int size);
 int utils_read(void *buf, int size);
 void utils_close(void);
 
-__attribute__((section(".utils"),unused)) 
+__attribute__((section(".utils"),used)) 
 static void *utils_interface[4] = {
     (void *)utils_open,
     (void *)utils_write,
