@@ -35,7 +35,7 @@ void main(void) {
     uart3_setup(115200, 8, 'N', 1);
     uart3_write("Hello World!\r\n");
     while(1) {
-        c[0] = uart3_read();
+        uart3_read(c,1);
         c[1] = 0;
         uart3_write(c);
     }
