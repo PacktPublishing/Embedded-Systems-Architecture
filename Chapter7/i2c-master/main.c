@@ -30,12 +30,13 @@
 
 void main(void) {
     uint8_t b;
+    int i;
     flash_set_waitstates();
     clock_config();
     i2c1_setup();
 
     i2c1_test_sequence();
-    for (int i = 0; i < 9999999; i++) {
+    for (i = 0; i < 9999999; i++) {
         asm volatile("nop");
     }
     i2c1_test_sequence();
