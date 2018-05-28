@@ -37,7 +37,7 @@
 
 #define EXTI_CR_BASE (0x40013808)
 #define EXTI_CR0 (*(volatile uint32_t *)(EXTI_CR_BASE + 0x00))
-#define EXTI_CR_EXTI0_MASK (0x0F)
+#define EXTI_CR_EXTI0_MASK (0xFFFF)
 
 #define EXTI_BASE (0x40013C00)
 #define EXTI_IMR    (*(volatile uint32_t *)(EXTI_BASE + 0x00))

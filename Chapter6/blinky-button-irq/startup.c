@@ -83,6 +83,7 @@ void isr_fault(void)
 {
     /* Panic. */
     while(1) ;;
+
 }
 
 
