@@ -5,7 +5,7 @@ Embedded systems are self-contained units that have a dedicated purpose within a
 Embedded Systems Architecture begins with a bird's eye view of embedded development and how it differs from the other systems that you may be familiar with. You’ll first be guided to setting up a development environment and then move on to the core system architectural concepts, exploring pragmatic designs, boot-up mechanisms, and memory management. Next, you’ll look at the programming interface and device drivers to establish communication via TCP/IP and take measures to increase the security of IoT solutions. Lastly, you’ll be introduced to parallel multithreaded applications through the development of a scheduler.
 By the end of the book, you will have explored various aspects of embedded architecture such as memory management, focusing on a memory-safe approach, multithreading, and the RTOS approach.
 ## Instructions and Navigation
-All of the code is organized into folders. Each folder starts with a number followed by the application name. For example, Chapter02.
+All of the code is organized into folders. Each folder starts with a number followed by the application name. For example, Chapter04.
 
 
 
@@ -27,5 +27,3 @@ It is expected that the reader is proficient in the C language and understands h
 
 * [GNU/Linux Rapid Embedded Programming](https://www.packtpub.com/hardware-and-creative/gnulinux-rapid-embedded-programming?utm_source=github&utm_medium=repository&utm_campaign=9781786461803)
 
-### Suggestions and Feedback
-[Click here](https://docs.google.com/forms/d/e/1FAIpQLSe5qwunkGf6PUvzPirPDtuy1Du5Rlzew23UBp2S-P3wB-GcwQ/viewform) if you have any feedback or suggestions.
