@@ -39,7 +39,6 @@
 #define RCC_CR      (*(volatile uint32_t *)(RCC_BASE + 0x00))
 #define RCC_PLLCFGR (*(volatile uint32_t *)(RCC_BASE + 0x04))
 #define RCC_CFGR    (*(volatile uint32_t *)(RCC_BASE + 0x08))
-#define RCC_CR      (*(volatile uint32_t *)(RCC_BASE + 0x00))
 
 #define RCC_CR_PLLI2SON				(1 << 26)
 #define RCC_CR_PLLRDY               (1 << 25)

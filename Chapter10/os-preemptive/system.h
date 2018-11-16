@@ -83,7 +83,6 @@ static inline void nvic_irq_clear(uint8_t n)
 #define RCC_CR      (*(volatile uint32_t *)(RCC_BASE + 0x00))
 #define RCC_PLLCFGR (*(volatile uint32_t *)(RCC_BASE + 0x04))
 #define RCC_CFGR    (*(volatile uint32_t *)(RCC_BASE + 0x08))
-#define RCC_CR      (*(volatile uint32_t *)(RCC_BASE + 0x00))
 
 #define RCC_CR_PLLRDY               (1 << 25)
 #define RCC_CR_PLLON                (1 << 24)
