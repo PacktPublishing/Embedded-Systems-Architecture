@@ -27,3 +27,7 @@ It is expected that the reader is proficient in the C language and understands h
 
 * [GNU/Linux Rapid Embedded Programming](https://www.packtpub.com/hardware-and-creative/gnulinux-rapid-embedded-programming?utm_source=github&utm_medium=repository&utm_campaign=9781786461803)
 
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781788832502">https://packt.link/free-ebook/9781788832502 </a> </p>
